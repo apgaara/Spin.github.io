@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #result {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <title>Roulette Game</title>
+</head>
+<body>
+    <div id="result">Hasil:</div>
+    <button onclick="spinRoulette()">Spin Roulette</button>
+
+    <script>
+        let spinCount = 0;
+
+        function spinRoulette() {
+            // Menghasilkan angka acak antara 0 dan 9 sebagai hasil spin
+            const result = Math.floor(Math.random() * 10);
+
+            // Memeriksa apakah sudah mencapai jumlah maksimum putaran sebelum menang
+            if (result >= 5) {
+                document.getElementById("result").innerHTML = "Anda MENANG!";
+            } else {
+                spinCount++;
+                document.getElementById("result").innerHTML = `Belum menang. Putaran ke-${spinCount}. Coba lagi!`;
+            }
+        }
+    </script>
+</body>
+</html>
